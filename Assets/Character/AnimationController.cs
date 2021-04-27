@@ -19,7 +19,12 @@ public class AnimationController : MonoBehaviour
         flatVelocity.y = 0;
 
         var flatSpeed = flatVelocity.magnitude;
+        var bodyHeight = body.position.y;
         bool isRunning = flatSpeed > 0.001f;
+
+        bool isFalling = bodyHeight < .05f;
+        _animator.SetBool("isFalling", isFalling);
+
 
         _animator.SetBool("isRunning", isRunning);
 
